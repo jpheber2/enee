@@ -13,13 +13,17 @@ U = Y;
 L = eye(n,n); 
 
 for j = 1:n-1        
-	for i = j+1:n  x)1
+	for i = j+1:n  
+		L(i,j) = U(i,j)/U(j,j);                 
+		U(i,:) = U(i,:)-L(i,j)*U(j,:);             
+	end        
+end
 
 I = eye(size(Y));
 Z = zeros(size(Y));
 
 for i = 1:n
-j = I(:,i);
+	j = I(:,i);
 		Z(:,i) = U\ (L\ j);
 end
 
