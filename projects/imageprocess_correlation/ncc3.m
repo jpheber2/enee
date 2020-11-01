@@ -1,0 +1,1 @@
+function ncc3=ncc3(f,g)[a b] = size(f); [c d] = size(g); % Cross-correlation dimension ff = zeros(a+c-1,b+d-1); gg = zeros(c+a-1,d+b-1);  ff(1:a,1:b) = f; gg(1:c,1:d) = g(end:-1:1,end:-1:1);F=fft2(ff);G=fft2(gg);F_norm=F./abs(F);G_norm=G./abs(G);CC_norm=F_norm.*G_norm;ncc3=ifft2(CC_norm);end
